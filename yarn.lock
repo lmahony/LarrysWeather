@@ -3972,6 +3972,10 @@ ignite-ir-boilerplate@^2.2.2:
   dependencies:
     ramda "^0.23.0"
 
+ignite-maps@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/ignite-maps/-/ignite-maps-0.1.6.tgz#f449c52cee5fb0f3ecce7d603b5904354cf8503b"
+
 ignite-standard@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ignite-standard/-/ignite-standard-1.0.0.tgz#76ad70395d3e8a382dcf1395761e1ae19b6d0849"
@@ -6470,6 +6474,10 @@ react-native-drawer@^2.3.0:
   dependencies:
     prop-types "^15.5.8"
     tween-functions "^1.0.1"
+
+react-native-maps@0.16.4:
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.16.4.tgz#c18c3cab8cd0ce05431cd74dac11a39afaa579e4"
 
 react-native-tab-view@^0.0.70:
   version "0.0.70"

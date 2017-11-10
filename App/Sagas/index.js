@@ -6,12 +6,12 @@ import DebugConfig from '../Config/DebugConfig'
 /* ------------- Types ------------- */
 
 import { StartupTypes } from '../Redux/StartupRedux'
-import { GithubTypes } from '../Redux/GithubRedux'
+import { WeatherTypes } from '../Redux/WeatherRedux'
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
-import { getUserAvatar } from './GithubSagas'
+import { getCurrent } from './WeatherSagas'
 
 /* ------------- API ------------- */
 
@@ -25,8 +25,7 @@ export default function * root () {
   yield all([
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
-
-    // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
+    takeLatest(WeatherTypes.GET_CURRENT, getCurrent, api),
+    takeLatest(WeatherTypes.GET_FORECAST, getForecast, api)
   ])
 }
