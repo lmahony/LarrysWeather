@@ -11,7 +11,7 @@ import { WeatherTypes } from '../Redux/WeatherRedux'
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
-import { getCurrent } from './WeatherSagas'
+import { getCurrent, getForecast } from './WeatherSagas'
 
 /* ------------- API ------------- */
 

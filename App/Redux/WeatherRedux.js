@@ -6,8 +6,10 @@ import Immutable from 'seamless-immutable'
 const { Types, Creators } = createActions({
   getCurrent: null,
   getForecast: null,
-  success: ['results'],
-  failure: null
+  currentSuccess: ['results'],
+  currentFailure: null,
+  forecastSuccess: ['results'],
+  forecastFailure: null
 })
 
 export const WeatherTypes = Types
@@ -35,7 +37,7 @@ export const request = (state) => {
 
 // successful current weather lookup
 export const success = (state, action) => {
-  const { results } = action
+  const { results, type } = action
 
   switch (type) {
     case 'CURRENT_SUCCESS': {

@@ -70,7 +70,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getCurrent: () => dispatch(WeatherActions.getCurrent()),
-    //getForecast: () => dispatch(WeatherActions.getForecast())
+    getForecast: () => dispatch(WeatherActions.getForecast())
   }
 }
 
