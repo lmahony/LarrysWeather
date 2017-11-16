@@ -6,8 +6,8 @@ import apisauce from 'apisauce'
 //https://www.larrymahony.com
 
 
-//const create = (baseURL = 'https://www.larrymahony.com/weather/') => {
-const create = (baseURL = 'https://api.wunderground.com/api/4d2ea4be623eb727/') => {
+const create = (baseURL = 'https://www.larrymahony.com/weather/api/') => {
+//const create = (baseURL = 'https://api.wunderground.com/api/4d2ea4be623eb727/') => {
   // ------
   // STEP 1
   // ------
@@ -22,7 +22,7 @@ const create = (baseURL = 'https://api.wunderground.com/api/4d2ea4be623eb727/') 
       'Cache-Control': 'max-age=300'
     },
     // 10 second timeout...
-    timeout: 10000
+    timeout: 5000
   })
 
   // ------
@@ -40,9 +40,10 @@ const create = (baseURL = 'https://api.wunderground.com/api/4d2ea4be623eb727/') 
   // way at this level.
   //
   const station = 'pws:ICOLAOIS2'
-  const getCurrent = () => api.get(`geolookup/conditions/q/${station}.json`)
-  const getForecast = () => api.get(`forecast/q/CA/${station}.json`)
-  //const getCurrent = () => api.get('current-json.php')
+  //const getCurrent = () => api.get(`geolookup/conditions/q/${station}.json`)
+  //const getForecast = () => api.get(`forecast/q/CA/${station}.json`)
+  const getCurrent = () => api.get('current-json.php')
+  const getForecast = () => api.get('forecast-json.php')
 
   // ------
   // STEP 3

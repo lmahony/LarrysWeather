@@ -10,10 +10,10 @@ import styles from './Styles/MyLocalWeatherScreenStyle'
 class MyLocalWeatherScreen extends Component {
 
   componentWillMount = () => {
-    if (!this.props.current.temp_c) {
+    if (!(this.props.current && this.props.current.temp_c)) {
       this.props.getCurrent()
     }
-    if (!this.props.forecast.txt_forecast) {
+    if (!(this.props.forecast && this.props.forecast.txt_forecast)) {
       this.props.getForecast();
     }
 
@@ -33,9 +33,13 @@ class MyLocalWeatherScreen extends Component {
   }
 
   _renderForecastItem = ({item, index}) => {
+    let bgColor = '#EFEFEF'
+    if (index%2===0){
+      bgColor = '#DDD'
+    }
     return (
-      <View>
-        <Text>{item.title}</Text>
+      <View style={{backgroundColor: bgColor,paddingTop:5,paddingBottom:5}}>
+        <Text style={{fontWeight:'bold'}}>{item.title}</Text>
         <Text>{item.fcttext_metric}</Text>
       </View>
     )
@@ -53,26 +57,21 @@ class MyLocalWeatherScreen extends Component {
       forecastMain = this.props.forecast.txt_forecast
     }
     return (
-      <ScrollView style={{padding: 4}}>
+      <ScrollView style={{padding: 5}}>
         <KeyboardAvoidingView behavior='position'>
-          <Text style={{fontWeight:'bold',fontSize:14, marginBottom: 10}}>My Local Weather</Text>
-
-
-          <Image source={{uri: iconUrl}} style={{width: 100, height: 100}} />
-          <Text>{this.props.current.weather}</Text>
-          <View style={{display: 'flex', flexDirection: 'row', marginTop: 5, marginBottom: 5 }} >
-            <Text>Temperature: {this.props.current.temp_c} </Text>
-            <Text> Feels Like: {this.props.current.feelslike_c}</Text>
+          <Text style={{fontWeight:'bold',fontSize:14, marginBottom: 10}}>Local Weather</Text>
+          <View style={{flexDirection:'row'}}>
+            <Image source={{uri: iconUrl}} style={{width: 80, height: 80}} />
+            <View style={{display: 'flex', flexDirection: 'column', marginTop: 5, marginBottom: 5 }} >
+              <Text>{this.props.current.weather}</Text>
+              <Text>Temp: <Text style={{fontWeight:'bold',fontSize:16}}>{this.props.current.temp_c}</Text></Text>
+              <Text>Feels Like: <Text style={{fontWeight:'bold',fontSize:16}}>{this.props.current.feelslike_c}</Text></Text>
+            </View>
           </View>
           <Text>Wind: {this.props.current.wind_string}</Text>
           <Text>Rain: {this.props.current.precip_1hr_metric}</Text>
 
           <Text style={{marginTop: 10, marginBottom: 10}}>Time: {this.props.current.observation_time}</Text>
-
-          <Text style={{color: 'blue'}} onPress={() => Linking.openURL(this.props.current.forecast_url)}>
-          {this.props.current.forecast_url}
-          </Text>
-          <Text>{this.props.error}</Text>
 
           <View>
             <Text>Forecast </Text>
@@ -80,7 +79,7 @@ class MyLocalWeatherScreen extends Component {
               data={forecastMain.forecastday}
               renderItem={this._renderForecastItem}
               keyExtractor={(item, index) => index}
-              ItemSeparatorComponent = {this._FlatListItemSeparator}
+
             />
           </View>
           {spinner}

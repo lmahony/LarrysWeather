@@ -16,7 +16,7 @@ import Styles from './Styles/MyLocationStyles'
 * https://console.developers.google.com/apis/api/maps_android_backend/
 *************************************************************/
 
-class MyLocation extends React.Component {
+export default class MyLocation extends React.Component {
   /* ***********************************************************
   * This generated code is only intended to get you started with the basics.
   * There are TONS of options available from traffic to buildings to indoors to compass and more!
@@ -63,7 +63,16 @@ class MyLocation extends React.Component {
     // })
   }
 
-  onRegionChange (newRegion) {
+  onGeoLocationChange (region) {
+    this.setState({
+      region: region,
+      // If there are no new values set the current ones
+      //lastLat: lastLat || this.state.lastLat,
+      //lastLong: lastLong || this.state.lastLong
+    });
+  }
+
+  onRegionChange (region, lastLat, lastLong) {
     /* ***********************************************************
     * STEP 4
     * If you wish to fetch new locations when the user changes the
@@ -76,6 +85,8 @@ class MyLocation extends React.Component {
     //   sw_long: newRegion.longitude - newRegion.longitudeDelta / 2
     // }
     // Fetch new data...
+
+
   }
 
   calloutPress (location) {
@@ -84,7 +95,7 @@ class MyLocation extends React.Component {
     * Configure what will happen (if anything) when the user
     * presses your callout.
     *************************************************************/
-    
+
     // console.tron.log(location) // Reactotron
   }
 
@@ -102,6 +113,19 @@ class MyLocation extends React.Component {
     )
   }
 
+  componentDidMount() {
+    this.watchID = navigator.geolocation.watchPosition((position) => {
+      // Create the object to update this.state.mapRegion through the onRegionChange function
+      let region = {
+        latitude:       position.coords.latitude,
+        longitude:      position.coords.longitude,
+        latitudeDelta:  0.00922*1.5,
+        longitudeDelta: 0.00421*1.5
+      }
+      this.onGeoLocationChange(region, region.latitude, region.longitude);
+    });
+  }
+
   render () {
     return (
       <MapView
@@ -110,11 +134,8 @@ class MyLocation extends React.Component {
         onRegionChangeComplete={this.onRegionChange}
         showsUserLocation={this.state.showUserLocation}
       >
-        {this.state.locations.map((location) => this.renderMapMarkers(location))}
+      
       </MapView>
     )
   }
 }
-
-export default MyLocation
-

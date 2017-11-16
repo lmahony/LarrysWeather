@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { TabNavigator } from 'react-navigation'
+import WeatherMapsScreen from '../Containers/WeatherMapsScreen'
 import MyLocationScreen from '../Containers/MyLocationScreen'
 import NationalWeatherScreen from '../Containers/NationalWeatherScreen'
 import MyLocalWeatherScreen from '../Containers/MyLocalWeatherScreen'
@@ -41,8 +42,8 @@ const PrimaryNav = TabNavigator({
       )
     }
   },
-  MyLocation: {
-    screen: MyLocationScreen,
+  WeatherMaps: {
+    screen: WeatherMapsScreen,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
         <Icon name={"globe"} size={24} color="#fff" />
