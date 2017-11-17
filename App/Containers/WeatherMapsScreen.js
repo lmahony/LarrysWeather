@@ -6,8 +6,8 @@ import WeatherActions from '../Redux/WeatherRedux'
 // Styles
 import styles from './Styles/WeatherMapsScreenStyle'
 
-const imageClouds = 'https://api.sat24.com/crop?type=visual5hdcomplete&lat=52.6541&lon=-7.2448&width=400&height=400&zoom=0.90&continent=eu'
-const imageRain = 'https://api.sat24.com/crop?type=rainTMC&lat=52.6541&lon=-7.2448&width=400&height=400&zoom=0.90&continent=eu'
+const imageClouds = 'https://api.sat24.com/crop?type=visual5hdcomplete&lat=52.6541&lon=-7.2448&width=400&height=400&zoom=0.90&continent=eu&rn=' + Date.now()
+const imageRain = 'https://api.sat24.com/crop?type=rainTMC&lat=52.6541&lon=-7.2448&width=400&height=400&zoom=0.90&continent=eu&rn=' + Date.now()
 
 class WeatherMapsScreen extends Component {
 

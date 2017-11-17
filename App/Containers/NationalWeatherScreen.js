@@ -17,7 +17,6 @@ class NationalWeatherScreen extends Component {
             style={{height:600,width:'100%',padding: 4}}  >
             </WebView>
 
-
         </KeyboardAvoidingView>
       </ScrollView>
     )

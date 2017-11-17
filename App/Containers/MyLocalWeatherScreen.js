@@ -34,11 +34,11 @@ class MyLocalWeatherScreen extends Component {
 
   _renderForecastItem = ({item, index}) => {
     let bgColor = '#EFEFEF'
-    if (index%2===0){
+    if (index%2===1){
       bgColor = '#DDD'
     }
     return (
-      <View style={{backgroundColor: bgColor,paddingTop:5,paddingBottom:5}}>
+      <View style={{backgroundColor: bgColor,padding:5,borderRadius:10,marginBottom:5}}>
         <Text style={{fontWeight:'bold'}}>{item.title}</Text>
         <Text>{item.fcttext_metric}</Text>
       </View>
@@ -59,22 +59,23 @@ class MyLocalWeatherScreen extends Component {
     return (
       <ScrollView style={{padding: 5}}>
         <KeyboardAvoidingView behavior='position'>
-          <Text style={{fontWeight:'bold',fontSize:18, marginBottom: 10}}>Local Weather</Text>
+          <Text style={styles.mainHeading}>Local Weather</Text>
+          <View style={styles.currentConditionsWrapper}>
           <View style={{flexDirection:'row'}}>
-            <Image source={{uri: iconUrl}} style={{width: 80, height: 80}} />
-            <View style={{display: 'flex', flexDirection: 'column', marginTop: 5, marginBottom: 5 }} >
+            <Image source={{uri: iconUrl}} style={styles.currentConditionsIcon} />
+            <View style={styles.currentDetailsWrapper} >
               <Text>{this.props.current.weather}</Text>
-              <Text>Temp: <Text style={{fontWeight:'bold',fontSize:16}}>{this.props.current.temp_c}</Text></Text>
-              <Text>Feels Like: <Text style={{fontWeight:'bold',fontSize:16}}>{this.props.current.feelslike_c}</Text></Text>
+              <Text>Temp: <Text style={styles.temperatureFigure}>{this.props.current.temp_c}</Text></Text>
+              <Text>Feels Like: <Text style={styles.temperatureFigure}>{this.props.current.feelslike_c}</Text></Text>
             </View>
           </View>
           <Text>Wind: {this.props.current.wind_string}</Text>
           <Text>Rain: {this.props.current.precip_1hr_metric}</Text>
+          </View>
+          <Text style={styles.timestamp}>{this.props.current.observation_time}</Text>
 
-          <Text style={{marginTop: 10, marginBottom: 10}}>{this.props.current.observation_time}</Text>
-
-          <View>
-            <Text>Forecast </Text>
+          <View style={styles.forecastWrapper}>
+            <Text style={styles.subHeading}>Forecast </Text>
             <FlatList
               data={forecastMain.forecastday}
               renderItem={this._renderForecastItem}
