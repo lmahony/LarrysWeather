@@ -12,7 +12,6 @@ class NationalWeatherScreen extends Component {
     return (
       <ScrollView style={styles.container} scrollEnabled={false}>
         <KeyboardAvoidingView behavior='position'>
-          <Text style={{fontWeight:'bold',fontSize:14}}>National Weather</Text>
           <WebView
             source={{uri: 'https://www.larrymahony.com/weather/api/ireland.php'}}
             style={{height:600,width:'100%',padding: 4}}  >

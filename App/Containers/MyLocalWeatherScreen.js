@@ -59,7 +59,7 @@ class MyLocalWeatherScreen extends Component {
     return (
       <ScrollView style={{padding: 5}}>
         <KeyboardAvoidingView behavior='position'>
-          <Text style={{fontWeight:'bold',fontSize:14, marginBottom: 10}}>Local Weather</Text>
+          <Text style={{fontWeight:'bold',fontSize:18, marginBottom: 10}}>Local Weather</Text>
           <View style={{flexDirection:'row'}}>
             <Image source={{uri: iconUrl}} style={{width: 80, height: 80}} />
             <View style={{display: 'flex', flexDirection: 'column', marginTop: 5, marginBottom: 5 }} >
