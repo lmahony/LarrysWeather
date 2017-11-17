@@ -71,7 +71,7 @@ class MyLocalWeatherScreen extends Component {
           <Text>Wind: {this.props.current.wind_string}</Text>
           <Text>Rain: {this.props.current.precip_1hr_metric}</Text>
 
-          <Text style={{marginTop: 10, marginBottom: 10}}>Time: {this.props.current.observation_time}</Text>
+          <Text style={{marginTop: 10, marginBottom: 10}}>{this.props.current.observation_time}</Text>
 
           <View>
             <Text>Forecast </Text>

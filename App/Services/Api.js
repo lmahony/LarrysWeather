@@ -1,13 +1,7 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
 
-// our "constructor"
-//https://www.d1008445-1.blacknight.com/
-//https://www.larrymahony.com
-
-
 const create = (baseURL = 'https://www.larrymahony.com/weather/api/') => {
-//const create = (baseURL = 'https://api.wunderground.com/api/4d2ea4be623eb727/') => {
   // ------
   // STEP 1
   // ------
