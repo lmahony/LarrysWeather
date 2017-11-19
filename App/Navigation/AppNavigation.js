@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { TabNavigator, DrawerNavigator } from 'react-navigation'
+import { TabNavigator, DrawerNavigator, StackNavigator, NavigationActions } from 'react-navigation'
 import SettingsScreen from '../Containers/SettingsScreen'
 import WeatherMapsScreen from '../Containers/WeatherMapsScreen'
 import MyLocationScreen from '../Containers/MyLocationScreen'
 import NationalWeatherScreen from '../Containers/NationalWeatherScreen'
 import MyLocalWeatherScreen from '../Containers/MyLocalWeatherScreen'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { View, TouchableOpacity } from 'react-native'
 
 import styles from './Styles/NavigationStyles'
 
@@ -53,7 +54,7 @@ const TabNav = TabNavigator({
   },
 }, tabBarConfig)
 
-const PrimaryNav = DrawerNavigator({
+const DrawerNav = DrawerNavigator({
   Home: {
     screen: TabNav
   },
@@ -64,5 +65,14 @@ const PrimaryNav = DrawerNavigator({
   
 });
 
+const PrimaryNav = StackNavigator({
+  MyTab: {
+    screen: DrawerNav,
+    navigationOptions: ( { navigation }) => ({
+      title: "Larry's Weather",
+      headerLeft: <Icon name="bars" style={{padding: 10, marginLeft:10}}size={20} onPress={ () => { navigation.navigate('DrawerOpen');} } />
+    })
+ }
+})
 
 export default PrimaryNav

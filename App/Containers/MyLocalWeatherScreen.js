@@ -55,8 +55,8 @@ class MyLocalWeatherScreen extends Component {
     return (
       <ScrollView style={{padding: 5}}>
         <KeyboardAvoidingView behavior='position'>
-          <Text style={styles.mainHeading}>Local Weather
-          {this.props.current.observation_location ? this.props.current.observation_location.city : '' }
+          <Text style={styles.mainHeading}>Local Weather - 
+           {this.props.current.observation_location ? this.props.current.display_location.city : '' }
           </Text>
           <View style={styles.currentConditionsWrapper}>
           <View style={{flexDirection:'row'}}>
@@ -101,8 +101,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCurrent: (station) => dispatch(WeatherActions.getCurrent()),
-    getForecast: (station) => dispatch(WeatherActions.getForecast())
+    getCurrent: (station) => dispatch(WeatherActions.getCurrent(station)),
+    getForecast: (station) => dispatch(WeatherActions.getForecast(station))
   }
 }
 
