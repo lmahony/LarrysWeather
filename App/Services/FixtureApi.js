@@ -3,7 +3,7 @@ export default {
   getCurrent: () => {
     return {
       ok: true,
-      data: require('../Fixtures/root.json')
+      data: require('../Fixtures/currentConditions.json')
     }
   }
 }

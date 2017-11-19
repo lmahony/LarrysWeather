@@ -10,14 +10,11 @@ import styles from './Styles/MyLocalWeatherScreenStyle'
 class MyLocalWeatherScreen extends Component {
 
   componentWillMount = () => {
-    if (!(this.props.current && this.props.current.temp_c)) {
-      this.props.getCurrent()
-    }
-    if (!(this.props.forecast && this.props.forecast.txt_forecast)) {
-      this.props.getForecast();
-    }
-
-
+    console.tron.log('Station = ' + this.props.station)
+      this.props.getCurrent(this.props.station)
+    
+      this.props.getForecast(this.props.station);
+    
   }
 
   _FlatListItemSeparator = () => {
@@ -45,7 +42,6 @@ class MyLocalWeatherScreen extends Component {
     )
   }
 
-
   render () {
     const spinner = this.props.fetching ? <ActivityIndicator size='large'/> : null;
     let iconUrl = 'https://icons.wxug.com/i/c/k/nt_cloudy.gif'
@@ -59,7 +55,9 @@ class MyLocalWeatherScreen extends Component {
     return (
       <ScrollView style={{padding: 5}}>
         <KeyboardAvoidingView behavior='position'>
-          <Text style={styles.mainHeading}>Local Weather</Text>
+          <Text style={styles.mainHeading}>Local Weather
+          {this.props.current.observation_location ? this.props.current.observation_location.city : '' }
+          </Text>
           <View style={styles.currentConditionsWrapper}>
           <View style={{flexDirection:'row'}}>
             <Image source={{uri: iconUrl}} style={styles.currentConditionsIcon} />
@@ -70,7 +68,8 @@ class MyLocalWeatherScreen extends Component {
             </View>
           </View>
           <Text>Wind: {this.props.current.wind_string}</Text>
-          <Text>Rain: {this.props.current.precip_1hr_metric}</Text>
+          <Text>Precipition: Last Hour {this.props.current.precip_1hr_metric} ,
+            Today {this.props.current.precip_today_metric}</Text>
           </View>
           <Text style={styles.timestamp}>{this.props.current.observation_time}</Text>
 
@@ -95,14 +94,15 @@ const mapStateToProps = (state) => {
     fetching: state.weather.fetching,
     current: state.weather.current,
     forecast: state.weather.forecast,
-    error: state.weather.error
+    error: state.weather.error,
+    station: state.weather.station
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCurrent: () => dispatch(WeatherActions.getCurrent()),
-    getForecast: () => dispatch(WeatherActions.getForecast())
+    getCurrent: (station) => dispatch(WeatherActions.getCurrent()),
+    getForecast: (station) => dispatch(WeatherActions.getForecast())
   }
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { TabNavigator } from 'react-navigation'
+import { TabNavigator, DrawerNavigator } from 'react-navigation'
+import SettingsScreen from '../Containers/SettingsScreen'
 import WeatherMapsScreen from '../Containers/WeatherMapsScreen'
 import MyLocationScreen from '../Containers/MyLocationScreen'
 import NationalWeatherScreen from '../Containers/NationalWeatherScreen'
@@ -25,7 +26,7 @@ let tabBarConfig = {
 }
 
 // Manifest of possible screens
-const PrimaryNav = TabNavigator({
+const TabNav = TabNavigator({
   LocalWeather: {
     screen:  MyLocalWeatherScreen,
     navigationOptions: {
@@ -51,5 +52,17 @@ const PrimaryNav = TabNavigator({
     }
   },
 }, tabBarConfig)
+
+const PrimaryNav = DrawerNavigator({
+  Home: {
+    screen: TabNav
+  },
+  Settings: {
+    screen: SettingsScreen
+  }
+},{
+  
+});
+
 
 export default PrimaryNav

@@ -11,7 +11,9 @@ const { Types, Creators } = createActions({
   forecastSuccess: ['results'],
   forecastFailure: null,
   getSelectedImage: null,
-  setSelectedImage: ['image']
+  setSelectedImage: ['image'],
+  getStation: null,
+  setStation: ['station']
 })
 
 export const WeatherTypes = Types
@@ -20,6 +22,7 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
+  station: null,
   current: {},
   forecast: {},
   national: {},
@@ -87,6 +90,18 @@ export const setSelectedImage = (state, action) => {
   }
 }
 
+export const getStation = (state) => {
+  return state
+}
+
+export const setStation = (state, action) => {
+  const { station, type } = action
+  return {
+    ...state,
+    station: station
+  }
+}
+
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
@@ -97,5 +112,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.FORECAST_SUCCESS]: success,
   [Types.FORECAST_FAILURE]: failure,
   [Types.SET_SELECTED_IMAGE]: setSelectedImage,
-  [Types.GET_SELECTED_IMAGE]: getSelectedImage
+  [Types.GET_SELECTED_IMAGE]: getSelectedImage,
+  [Types.SET_STATION]: setStation,
+  [Types.GET_STATION]: getStation
 })

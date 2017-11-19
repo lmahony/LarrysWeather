@@ -32,12 +32,17 @@ const create = (baseURL = 'https://www.larrymahony.com/weather/api/') => {
   //
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
-  //
-  const station = 'pws:ICOLAOIS2'
+  
   //const getCurrent = () => api.get(`geolookup/conditions/q/${station}.json`)
   //const getForecast = () => api.get(`forecast/q/CA/${station}.json`)
-  const getCurrent = () => api.get('current-json.php')
-  const getForecast = () => api.get('forecast-json.php')
+  const getCurrent = (station) => {
+    console.tron.log('API get Current ' + station)
+    return api.get('current-json.php', {station: station})
+  }
+  const getForecast = (station) => {
+    return api.get('forecast-json.php', {station: station})
+  }
+
 
   // ------
   // STEP 3

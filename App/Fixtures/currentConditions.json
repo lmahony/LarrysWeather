@@ -1,0 +1,140 @@
+{
+    "response": {
+    "version":"0.1",
+    "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+    "features": {
+    "geolookup": 1
+    ,
+    "conditions": 1
+    }
+      }
+          ,	"location": {
+          "type":"INTLCITY",
+          "country":"IE",
+          "country_iso3166":"IE",
+          "country_name":"Ireland",
+          "state":"LS",
+          "city":"Durrow",
+          "tz_short":"GMT",
+          "tz_long":"Europe/Dublin",
+          "lat":"52.844719",
+          "lon":"-7.388391",
+          "zip":"00000",
+          "magic":"104",
+          "wmo":"03960",
+          "l":"/q/zmw:00000.104.03960",
+          "requesturl":"global/stations/03960.html",
+          "wuiurl":"https://www.wunderground.com/global/stations/03960.html",
+          "nearby_weather_stations": {
+          "airport": {
+          "station": [
+          { "city":"", "state":"", "country":"", "icao":"", "lat":"", "lon":"" }
+          ,{ "city":"Waterford Airport", "state":"", "country":"IE", "icao":"EIWF", "lat":"52.18999863", "lon":"-7.09000015" }
+          ,{ "city":"Casement", "state":"", "country":"IE", "icao":"EIME", "lat":"53.29999924", "lon":"-6.42999983" }
+          ]
+          }
+          ,
+          "pws": {
+          "station": [
+          {
+          "neighborhood":"",
+          "city":"Durrow",
+          "state":"CO. LAOIS",
+          "country":"IE",
+          "id":"ICOLAOIS2",
+          "lat":52.844719,
+          "lon":-7.388391,
+          "distance_km":0,
+          "distance_mi":0
+          }
+          
+          ]
+          }
+          }
+      }
+    ,	"current_observation": {
+          "image": {
+          "url":"http://icons.wxug.com/graphics/wu2/logo_130x80.png",
+          "title":"Weather Underground",
+          "link":"http://www.wunderground.com"
+          },
+          "display_location": {
+          "full":"Durrow, Ireland",
+          "city":"Durrow",
+          "state":"LS",
+          "state_name":"Ireland",
+          "country":"IE",
+          "country_iso3166":"IE",
+          "zip":"00000",
+          "magic":"104",
+          "wmo":"03960",
+          "latitude":"52.844719",
+          "longitude":"-7.388391",
+          "elevation":"84.1"
+          },
+          "observation_location": {
+          "full":"Durrow, CO. LAOIS",
+          "city":"Durrow",
+          "state":"CO. LAOIS",
+          "country":"IE",
+          "country_iso3166":"IE",
+          "latitude":"52.844719",
+          "longitude":"-7.388391",
+          "elevation":"292 ft"
+          },
+          "estimated": {
+          },
+          "station_id":"ICOLAOIS2",
+          "observation_time":"Last Updated on November 17, 2:25 PM GMT",
+          "observation_time_rfc822":"Fri, 17 Nov 2017 14:25:45 +0000",
+          "observation_epoch":"1510928745",
+          "local_time_rfc822":"Fri, 17 Nov 2017 14:25:54 +0000",
+          "local_epoch":"1510928754",
+          "local_tz_short":"GMT",
+          "local_tz_long":"Europe/Dublin",
+          "local_tz_offset":"+0000",
+          "weather":"Partly Cloudy",
+          "temperature_string":"46.0 F (7.8 C)",
+          "temp_f":46.0,
+          "temp_c":7.8,
+          "relative_humidity":"74%",
+          "wind_string":"From the SW at 5.0 MPH Gusting to 9.0 MPH",
+          "wind_dir":"SW",
+          "wind_degrees":222,
+          "wind_mph":5.0,
+          "wind_gust_mph":"9.0",
+          "wind_kph":8.0,
+          "wind_gust_kph":"14.5",
+          "pressure_mb":"1029",
+          "pressure_in":"30.39",
+          "pressure_trend":"-",
+          "dewpoint_string":"38 F (3 C)",
+          "dewpoint_f":38,
+          "dewpoint_c":3,
+          "heat_index_string":"NA",
+          "heat_index_f":"NA",
+          "heat_index_c":"NA",
+          "windchill_string":"44 F (6 C)",
+          "windchill_f":"44",
+          "windchill_c":"6",
+          "feelslike_string":"44 F (6 C)",
+          "feelslike_f":"44",
+          "feelslike_c":"6",
+          "visibility_mi":"6.2",
+          "visibility_km":"10.0",
+          "solarradiation":"--",
+          "UV":"0","precip_1hr_string":"0.00 in ( 0 mm)",
+          "precip_1hr_in":"0.00",
+          "precip_1hr_metric":" 0",
+          "precip_today_string":"0.77 in (20 mm)",
+          "precip_today_in":"0.77",
+          "precip_today_metric":"20",
+          "icon":"partlycloudy",
+          "icon_url":"http://icons.wxug.com/i/c/k/partlycloudy.gif",
+          "forecast_url":"http://www.wunderground.com/global/stations/03960.html",
+          "history_url":"http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=ICOLAOIS2",
+          "ob_url":"http://www.wunderground.com/cgi-bin/findweather/getForecast?query=52.844719,-7.388391",
+          "nowcast":""
+      }
+  }
+  
